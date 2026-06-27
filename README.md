@@ -36,8 +36,8 @@ A proven system for managing large AI-assisted projects without context explosio
 ### Step 1: Clone and Setup (30 seconds)
 
 ```bash
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 python init.py "My Project Name" --language en
 ```
 
@@ -385,16 +385,16 @@ AFTER YOU FINISH:
 ### Method 1: Copy Templates Directly
 
 ```bash
-git clone https://github.com/findones/multi-window-system.git
-cp -r multi-window-system/templates/* /your/project/
+git clone https://github.com/findones/multi-role-project-skill.git
+cp -r multi-role-project-skill/templates/* /your/project/
 ```
 
 ### Method 2: Python Script (Recommended)
 
 ```bash
 # Clone the repository
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 
 # Run the initialization script
 python init.py "Project Name" --language en
@@ -409,19 +409,19 @@ Install as a reusable skill in Claude Code - available in all your projects:
 
 ```bash
 # For macOS / Linux
-mkdir -p ~/.claude/skills/multi-window-system
-git clone https://github.com/findones/multi-window-system.git ~/.claude/skills/multi-window-system
+mkdir -p ~/.claude/skills/multi-role-project-skill
+git clone https://github.com/findones/multi-role-project-skill.git ~/.claude/skills/multi-role-project-skill
 
 # For Windows (PowerShell)
-mkdir -Path "$env:USERPROFILE\.claude\skills\multi-window-system"
-git clone https://github.com/findones/multi-window-system.git "$env:USERPROFILE\.claude\skills\multi-window-system"
+mkdir -Path "$env:USERPROFILE\.claude\skills\multi-role-project-skill"
+git clone https://github.com/findones/multi-role-project-skill.git "$env:USERPROFILE\.claude\skills\multi-role-project-skill"
 ```
 
 **Usage in Claude Code:**
 ```
-/multi-window-project-init "My Project Name" --language en
-/multi-window-project-init "我的项目" --language zh
-/multi-window-project-init "My Project" --roles architect,engineer
+/multi-role-project-init "My Project Name" --language en
+/multi-role-project-init "我的项目" --language zh
+/multi-role-project-init "My Project" --roles architect,engineer
 ```
 
 **Benefits of Skill Installation:**
@@ -483,8 +483,8 @@ MIT License — Free to use and adapt
 ### 步骤 1：克隆和设置（30 秒）
 
 ```bash
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 python init.py "我的项目名称" --language zh
 ```
 
@@ -828,16 +828,16 @@ A：**核心问题**：单个对话窗口处理大项目会导致：
 ### 方法 1：直接复制模板
 
 ```bash
-git clone https://github.com/findones/multi-window-system.git
-cp -r multi-window-system/templates/* /your/project/
+git clone https://github.com/findones/multi-role-project-skill.git
+cp -r multi-role-project-skill/templates/* /your/project/
 ```
 
 ### 方法 2：使用 Python 脚本（推荐）
 
 ```bash
 # 克隆仓库
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 
 # 运行初始化脚本
 python init.py "项目名称" --language zh

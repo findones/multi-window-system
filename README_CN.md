@@ -38,8 +38,8 @@
 #### 步骤 1：克隆和设置（30 秒）
 
 ```bash
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 python init.py "我的项目名称" --language zh
 ```
 

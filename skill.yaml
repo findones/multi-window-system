@@ -1,15 +1,15 @@
 # Claude Code Skill Definition
-# Multi-Window Project Management System
+# Multi-Role Project Management System
 
-name: multi-window-project-init
-id: multi-window-system
+name: multi-role-project-init
+id: multi-role-project-skill
 version: 1.0.0
 author: Community
 license: MIT
-homepage: https://github.com/findones/multi-window-system
+homepage: https://github.com/findones/multi-role-project-skill
 
 description: |
-  Initialize multi-window project management system for large AI-assisted projects.
+  Initialize multi-role project management system for large projects.
 
   Solves single-window context explosion by splitting projects into 4 focused windows:
   - 🧭 Architect: Design & decisions
@@ -21,11 +21,11 @@ description: |
 
 # How to invoke this skill in Claude Code
 invocation:
-  slash_command: "/multi-window-project-init"
+  slash_command: "/multi-role-project-init"
   examples:
-    - "/multi-window-project-init \"My ML Project\""
-    - "/multi-window-project-init \"My Project\" --language zh"
-    - "/multi-window-project-init \"My Project\" --roles architect,engineer"
+    - "/multi-role-project-init \"My ML Project\""
+    - "/multi-role-project-init \"My Project\" --language zh"
+    - "/multi-role-project-init \"My Project\" --roles architect,engineer"
 
 # Command-line arguments
 arguments:
@@ -69,19 +69,20 @@ output_files:
 installation:
   global: |
     # Install globally (available in all projects)
-    mkdir -p ~/.claude/skills/multi-window-system
-    git clone https://github.com/findones/multi-window-system.git ~/.claude/skills/multi-window-system
+    mkdir -p ~/.claude/skills/multi-role-project-skill
+    git clone https://github.com/findones/multi-role-project-skill.git ~/.claude/skills/multi-role-project-skill
 
   project: |
     # Install in current project only
-    mkdir -p .claude/skills/multi-window-system
-    cp -r [skill-path] .claude/skills/multi-window-system
+    mkdir -p .claude/skills/multi-role-project-skill
+    cp -r [skill-path] .claude/skills/multi-role-project-skill
 
 # Metadata
 metadata:
   category: project-management
   tags:
     - project-management
+    - multi-role
     - multi-window
     - ai-assisted
     - collaboration

@@ -8,8 +8,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 
 # 2. Make script executable
 chmod +x init.py
@@ -27,7 +27,7 @@ python init.py "My Project Name" --language en
 
 ```bash
 # 1. Copy templates
-cp -r multi-window-system/templates/* /your/project/
+cp -r multi-role-project-skill/templates/* /your/project/
 
 # 2. Edit STATUS.md
 nano /your/project/STATUS.md
@@ -40,7 +40,7 @@ nano /your/project/STATUS.md
 
 ```
 In Claude Code terminal:
-/multi-window-project-init "Project Name" --language en
+/multi-role-project-init "Project Name" --language en
 ```
 
 ---
@@ -162,8 +162,8 @@ python3 init.py "My Project"
 
 A:
 ```bash
-# Make sure you're in the multi-window-system directory
-cd multi-window-system
+# Make sure you're in the multi-role-project-skill directory
+cd multi-role-project-skill
 ls init.py  # Should show init.py
 
 # Then run:
@@ -199,8 +199,8 @@ python init.py "My Project" --output /path/to/project
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/findones/multi-window-system.git
-cd multi-window-system
+git clone https://github.com/findones/multi-role-project-skill.git
+cd multi-role-project-skill
 
 # 2. 给脚本执行权限
 chmod +x init.py
@@ -218,7 +218,7 @@ python init.py "我的项目名称" --language zh
 
 ```bash
 # 1. 复制模板
-cp -r multi-window-system/templates/* /your/project/
+cp -r multi-role-project-skill/templates/* /your/project/
 
 # 2. 编辑 STATUS.md
 nano /your/project/STATUS.md
@@ -231,7 +231,7 @@ nano /your/project/STATUS.md
 
 ```
 在 Claude Code 终端中：
-/multi-window-project-init "项目名称" --language zh
+/multi-role-project-init "项目名称" --language zh
 ```
 
 ---
@@ -353,8 +353,8 @@ python3 init.py "我的项目"
 
 A：
 ```bash
-# 确保你在 multi-window-system 目录中
-cd multi-window-system
+# 确保你在 multi-role-project-skill 目录中
+cd multi-role-project-skill
 ls init.py  # 应该显示 init.py
 
 # 然后运行：
