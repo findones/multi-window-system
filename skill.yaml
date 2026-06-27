@@ -6,7 +6,7 @@ id: multi-window-system
 version: 1.0.0
 author: Community
 license: MIT
-homepage: https://github.com/your-username/multi-window-system
+homepage: https://github.com/findones/multi-window-system
 
 description: |
   Initialize multi-window project management system for large AI-assisted projects.
@@ -70,7 +70,7 @@ installation:
   global: |
     # Install globally (available in all projects)
     mkdir -p ~/.claude/skills/multi-window-system
-    git clone https://github.com/YOUR_USERNAME/multi-window-system.git ~/.claude/skills/multi-window-system
+    git clone https://github.com/findones/multi-window-system.git ~/.claude/skills/multi-window-system
 
   project: |
     # Install in current project only
