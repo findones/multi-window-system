@@ -220,12 +220,25 @@ A: STATUS.md in git:
 
 **Q: Is this a "silver bullet"?**
 
-A: No. It solves "context confusion" but not:
-- Technical correctness (you decide)
-- Data quality (you verify)
-- Project deadlines (you estimate)
+A: No. A "silver bullet" is a perfect solution that solves ALL problems. This system is NOT that.
 
-But it helps you think clearly about all of these.
+**What it SOLVES:**
+- ✅ Context explosion (AI forgetting decisions)
+- ✅ Decision tracking (clear audit trail)
+- ✅ Clear thinking (focused windows per role)
+- ✅ Team coordination (async via STATUS.md)
+
+**What it DOESN'T solve (you still need to handle):**
+- ❌ Technical correctness — you decide the architecture
+- ❌ Data quality — you verify the data
+- ❌ Project deadlines — you estimate and plan
+- ❌ Code bugs — you test and debug
+
+**What it helps with:**
+- 🎯 Clear thinking about all these challenges
+- 🎯 Traceable decision-making
+- 🎯 No context loss across windows
+- 🎯 Better organization = better output
 
 ---
 
@@ -251,6 +264,33 @@ python init.py "Project Name" --language en
 # Or specify output directory
 python init.py "Project Name" --output /your/project/path --language en
 ```
+
+### Method 3: Claude Code Skill (Global Installation)
+
+Install as a reusable skill in Claude Code - available in all your projects:
+
+```bash
+# For macOS / Linux
+mkdir -p ~/.claude/skills/multi-window-system
+git clone https://github.com/findones/multi-window-system.git ~/.claude/skills/multi-window-system
+
+# For Windows (PowerShell)
+mkdir -Path "$env:USERPROFILE\.claude\skills\multi-window-system"
+git clone https://github.com/findones/multi-window-system.git "$env:USERPROFILE\.claude\skills\multi-window-system"
+```
+
+**Usage in Claude Code:**
+```
+/multi-window-project-init "My Project Name" --language en
+/multi-window-project-init "我的项目" --language zh
+/multi-window-project-init "My Project" --roles architect,engineer
+```
+
+**Benefits of Skill Installation:**
+- ✅ Available in any project
+- ✅ One-command setup
+- ✅ No need to clone multiple times
+- ✅ Easy updates (just git pull in the skill directory)
 
 ---
 
@@ -488,12 +528,25 @@ A：STATUS.md 在 git 中：
 
 **Q：这是"银弹"吗？**
 
-A：不是。它解决"上下文混乱"，但不能解决：
-- 技术正确性（你来决定）
-- 数据质量（你来验证）
-- 项目截止日期（你来估计）
+A：不是。"银弹"是指能解决所有问题的完美方案。这个系统不是。
 
-但它帮助你清晰地思考所有这些问题。
+**能解决的问题：**
+- ✅ 上下文爆炸（AI遗忘决策）
+- ✅ 决策追踪（完整的决策记录）
+- ✅ 思维清晰（按角色分离工作）
+- ✅ 团队协调（通过STATUS.md异步协作）
+
+**不能解决的问题（你需要自己处理）：**
+- ❌ 技术正确性 — 你来决定架构
+- ❌ 数据质量 — 你来验证数据
+- ❌ 项目截止 — 你来估计计划
+- ❌ 代码bug — 你来测试调试
+
+**能帮助的：**
+- 🎯 清晰地思考所有这些挑战
+- 🎯 决策可追踪、有记录
+- 🎯 上下文不丢失
+- 🎯 组织更好 = 输出更好
 
 ---
 
