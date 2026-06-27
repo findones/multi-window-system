@@ -61,7 +61,7 @@
 **Example:**
 - Current: Designing feature Y based on performance bottleneck analysis
 - Next: Create V2 architecture spec with optimizations
-- Latest output (2026-06-27): Performance analysis complete, documented in method.md §3
+- Latest output (YYYY-MM-DD): Performance analysis complete, documented in method.md §3
 
 ### 🔧 Engineer
 - Current: [...]
@@ -87,21 +87,21 @@
 
 **Example:**
 ```
-- **2026-06-27 🧭 Architect → 🔧 Engineer**:
+- **YYYY-MM-DD 🧭 Architect → 🔧 Engineer**:
   **Feature Y architecture design complete, ready for implementation.**
   - Architecture spec added to method.md §3.2
   - Requires optimization in module X
   - Expected implementation time: 3 days
   - Run tests after implementation
 
-- **2026-06-28 🔧 Engineer → 🧭 Architect / ✍️ Paper**:
+- **YYYY-MM-DD 🔧 Engineer → 🧭 Architect / ✍️ Paper**:
   **Feature Y implementation complete, performance test results ready.**
   - Latency improved from 250ms to 95ms
   - All tests passing (20/20)
   - See CODE_MAP.md for code changes
   - See RESULTS.md §2.1 for performance numbers
 
-- **2026-06-25 🧭 Architect → 🔧 Engineer**:
+- **YYYY-MM-DD 🧭 Architect → 🔧 Engineer**:
   **Please implement Feature X with the following requirements:**
   - Performance target: <100ms response time
   - Memory usage: <500MB
@@ -150,7 +150,7 @@ Suppose you're the Architect entering today:
 
 2. **Read this file's** "Handoff Messages" to find messages for you
    ```
-   - **2026-06-28 🔧 Engineer → 🧭 Architect**: Feature Y complete, see RESULTS.md...
+   - **YYYY-MM-DD 🔧 Engineer → 🧭 Architect**: Feature Y complete, see RESULTS.md...
    ```
 
 3. **Jump to** `docs/roles/architect.md`
@@ -164,7 +164,7 @@ Suppose you're the Architect entering today:
    1. Update method.md with new design (e.g., add §3.5 Optimization Strategy)
    2. Update docs/roles/architect.md with your work
    3. Come back here and write a Handoff to Engineer:
-      - **2026-06-29 🧭 Architect → 🔧 Engineer**:
+      - **YYYY-MM-DD 🧭 Architect → 🔧 Engineer**:
         **Optimization strategy design complete, ready for implementation.**
         - method.md §3.5 defines the optimization approach
         - Expected performance improvement: 40%

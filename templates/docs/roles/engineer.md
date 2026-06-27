@@ -112,7 +112,7 @@
 ```
 Implementation Log
 
-### 2026-06-15 Feature X Implementation
+### YYYY-MM-DD Feature X Implementation
 
 Task: Architect approved new architecture. Need to implement Module Y with the following requirements:
 - Support input type A and type B
@@ -154,7 +154,7 @@ Performance Notes:
 
 Experiment Runs Log
 
-### 2026-06-20 Feature X Ablation Study
+### YYYY-MM-DD Feature X Ablation Study
 
 Goal: Validate contribution of each component in Feature X
 

@@ -94,7 +94,7 @@ Input → [Module A] → [Module B] → [Module C] → Output
 ```
 Design Decision Journey
 
-### Version 3: Gated Residual Architecture (2026-06-15)
+### Version 3: Gated Residual Architecture (YYYY-MM-DD)
 
 Motivation: 
 Previous version (V2) used multiplicative fusion which showed instability in ablation tests.
@@ -121,7 +121,7 @@ Open Questions:
 2. Could we use attention instead of hardcoded gating?
    → Preliminary: yes, but more complex, defer to V4
 
-### Version 2: Multiplicative Fusion (2026-05-20)
+### Version 2: Multiplicative Fusion (YYYY-MM-DD)
 
 Motivation: ...
 [Previous version details]
