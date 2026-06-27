@@ -1,224 +1,166 @@
-# 🔬 Repro — 复现师窗口
+# 🔬 Repro — Research Window
 
-> 本文件是 🔬 Repro 角色的主场。记录参考论文的分析、参考项目的代码复现、技术可行性评估。
-> 角色职责：帮 Architect "开阔眼界"，找到可借鉴的技术和方向。
-
----
-
-## 参考论文分析
-
-### 论文 N：[完整标题和作者]
-
-**发表**: [会议/期刊，年份]
-
-**核心创新**：[一句话总结]
-
-**技术细节**：
-- [关键技术 1]: [怎么做的，为什么有效]
-- [关键技术 2]: [...]
-
-**与我们项目的关联**：
-- [哪个问题与我们类似]
-- [他们的解决方案对我们的启发]
-- [我们可以借鉴的点]
-
-**对我们的建议**：
-- [值得试的技术]
-- [需要注意的坑]
-
-**reference**：[DOI / 代码链接]
+> This is the Repro role's primary workspace. Record research topics, literature analysis, feasibility assessments.
 
 ---
 
-## 参考项目代码分析
+## Research Topics (from Architect)
 
-### 项目 N：[项目名，GitHub 链接]
+### Topic 1: [Research Question]
 
-**项目目的**：[这个项目在做什么]
+**Goal**: [What to find out?]
 
-**核心代码结构**：
-```
-[关键文件树]
-```
+**Progress**:
+- [ ] Search literature/databases
+- [ ] Analyze papers/code
+- [ ] Feasibility assessment
+- [ ] Report findings
 
-**关键模块分析**：
+**Findings**:
+[What did you discover?]
 
-#### 模块 A：[模块名]
-- **文件**: `path/to/file.py`
-- **关键函数**: `func_name()`
-- **核心逻辑**: [伪代码或流程图]
-- **与我们的对比**: [为什么提出这个对比]
-
-#### 模块 B：[...]
-
-**技术可行性**：
-- [这个代码是否值得移植到我们的项目]
-- [移植成本如何]
-- [预期收益]
-
-**建议**：
-- [立即试用的]
-- [深入调研的]
-- [暂不考虑的 + 原因]
+**Recommendations**:
+- Worth trying: [...]
+- Worth investigating: [...]
+- Not recommended: [... because]
 
 ---
 
-## 调研议题 (来自 Architect 的问题)
+## Reference Paper Analysis
 
-### 议题 1：[Architect 在 STATUS.md 中提出的问题]
+### Paper: [Title & Authors]
 
-**问题**：[具体的技术问题或设计问题]
+**Published**: [Conference/Journal]
 
-**目标**：[要找到什么答案]
+**Core Innovation**: [One-sentence summary]
 
-**调研进度**：
-- [ ] 搜索相关论文
-- [ ] 分析代码实现
-- [ ] 做可行性评估
-- [ ] 给 Architect 回报
+**Technical Details**:
+- Technique 1: [How does it work?]
+- Technique 2: [How does it work?]
 
-**调研结果**：
-[调研发现，给 Architect 的建议]
+**Relevance to Our Project**:
+- [Problem overlap]
+- [Potential insights]
 
----
-
-## 可行性评估
-
-### 技术 A：[要评估的技术名]
-
-**现状**：[目前的状态]
-
-**引入的好处**：
-- [好处 1]
-- [好处 2]
-
-**引入的成本**：
-- [成本 1: 代码改动量]
-- [成本 2: 显存额度]
-- [成本 3: 训练时间]
-
-**风险**：
-- [风险 1 + 缓解方案]
-- [风险 2 + 缓解方案]
-
-**建议**：[值不值得试]
+**Reference**: [DOI / URL]
 
 ---
 
-## 参考库 / 工具集
+## Reference Code Analysis
 
-[如果发现了有用的开源库（比如优化器、模块、数据处理工具），记录在这里]
+### Project: [Name & Link]
 
-- [库名]: [链接] [用途] [与项目的关联度]
+**Purpose**: [What does it do?]
+
+**Key Modules**:
+
+#### Module A
+- File: [...]
+- Function: [...]
+- Core logic: [...]
+- Relevance: [...]
+
+**Feasibility**:
+- Could we use this? [Yes/No/Maybe]
+- Cost: [What's required?]
+- Benefit: [What would we gain?]
+
+**Recommendation**: [Should we try?]
 
 ---
 
-## 例子（来自真实项目）
+## Knowledge Base
+
+[Collect useful snippets, references, ideas here]
+
+- [Resource 1]: [Why relevant]
+- [Resource 2]: [Why relevant]
+
+---
+
+## Example (Realistic Structure)
 
 ```
-参考论文分析
+Research Topics
 
-### 论文：CofiPara (ACL'24) — Improving LLM-based Open-Domain Structured Semantic Parsing using Contrastive Learning
+### Topic: Attention Mechanisms in Multi-Modal Systems
 
-核心创新：
-用对立的 rationale（"支持该答案"的理由 + "支持其他答案"的理由）
-进入生成式 T5，强制模型读懂 rationale 才能生成正确答案。
+Goal: Understand latest attention approaches for combining text and image information
 
-技术细节：
-- Rationale 生成：LMM 对同一样本生成两条相反立场的 rationale
-- 注入位置：生成式 T5 的条件输入（不是分类头附加）
-- 损失函数：seq2seq loss + 对比学习约束（鼓励正 rationale 和负 rationale 的表示分离）
+Progress:
+- [x] Literature search on arXiv/Google Scholar
+- [x] Analyzed 15 recent papers on cross-modal attention
+- [x] Evaluated code implementations from 3 popular projects
+- [ ] Feasibility report
 
-与我们项目的关联：
-我们的 RGI 发现 rationale 在分类头注入时被忽略（no_rationale 反而最优）。
-CofiPara 的"双对立 rationale + 生成式注入"可能是解决这个问题的方向。
+Findings:
+- Cross-attention is more effective than concatenation for this problem
+- Flash Attention can reduce memory overhead by 40%
+- Most recent approaches use learnable gating mechanisms
 
-对我们的建议：
-1. 试试改注入位置（从分类头 → 主模型的条件输入）
-2. 试试生成双 rationale 而不是单个中性描述
-3. 但成本：2× LLM 缓存大小 + 2× token 使用量（我们已接近 512 上限）
-
-reference: https://aclanthology.org/2024.acl-main.xxx/
+Recommendations:
+- Worth trying: Implement Flash Attention for our fusion module
+- Worth investigating: Layer-wise attention weight analysis
+- Not recommended: Old hardcoded attention weights (outperformed by learned gates)
 
 ---
 
-参考项目代码分析
+Reference Paper Analysis
 
-### CIRM（Context-Aware Item Representation Model）
+### Paper: "Attention Is All You Need" (Vaswani et al., 2017)
 
-项目目的：多模态推荐系统，用视觉和文本 rationale 指导推荐。
+Published: NeurIPS 2017
 
-核心代码结构：
-```
-CIRM/
-├── models/
-│   ├── __init__.py
-│   ├── cirm.py (主模型)
-│   ├── fusion.py (加性残差门控)
-│   └── attention.py
-├── data/
-├── utils/
-└── scripts/
-```
+Core Innovation: Self-attention mechanism replaces RNN/CNN for sequence modeling
 
-关键模块分析：
+Technical Details:
+- Multi-head attention: allows model to attend to different representation subspaces
+- Scaled dot-product: prevents gradient vanishing with proper scaling
+- Positional encoding: adds sequence position information
 
-#### 模块：_Relevance_Guided_Fusion (fusion.py, L45-120)
-- 文件：models/fusion.py
-- 关键函数：forward(text_feat, visual_feat, rationale_feat)
-- 核心逻辑：
-  ```
-  gate = sigmoid(MLP(rationale_feat))
-  relevance_gate = gate * visual_feat  # 加性残差
-  enhanced_visual = visual_feat + relevance_gate  # 不削弱主信号
-  ```
-- 与我们的对比：
-  这就是我们在 RGI 中采用的"加性残差"。
-  相比我们败过的"乘性削弱" (q·R)，这个方法在最坏情况下退化为恒等映射，保护主信号。
-
-技术可行性：
-- ✅ 代码简洁，易复现
-- ✅ 不需要额外训练，rationale 特征可预计算
-- ✅ 显存占用小（只加一个 gate 网络）
-
-建议：
-- ✅ 立即采用：我们的 RGI 架构正是基于 CIRM 的加性残差思想
-- 深入调研：图对推理的多 stage 融合（CIRM 有个 multi-scale attention pool）
-- 暂不考虑：CIRM 的对比学习设计（我们已有自监督 q，不需要额外对比）
+Relevance:
+- Problem overlap: Understanding how to combine multiple information sources
+- Potential insight: Multi-head approach could be useful for our multi-modal fusion
 
 ---
 
-调研议题
+Reference Code Analysis
 
-### 议题："rationale 注入有害"的根本原因是什么？
+### Project: Hugging Face Transformers
 
-问题：
-RGI 中 no_rationale 84.65 > full 84.19，说明 rationale 注入反而降分。
-但我们不相信 rationale 内容真的有害（那太奇怪了）。
-根本原因可能是"注入形式"。
+Purpose: Official implementations of transformer models
 
-目标：找到比"分类头附加"更好的注入形式。
+Key Modules:
+- torch_utils.py: Handles device allocation
+- modeling_utils.py: Base model classes
+- modeling_t5.py: T5 specific implementation
 
-调研进度：
-- ✅ 搜索论文：CofiPara, CIRM, Flan-T5 rationale 方法
-- ✅ 代码分析：CofiPara 用生成式条件，CIRM 用加性残差
-- ✅ 可行性评估：双 rationale 成本高，加性残差成本低
-- 🚧 给 Architect 回报：建议试 RGI + 加性残差（就是现在的方案）
+Feasibility:
+- Could we use this? Yes - mature, well-maintained library
+- Cost: ~2 hours to integrate, dependency management
+- Benefit: Don't need to reimplement attention, use community-tested code
 
-调研结果：
-根本原因不是 rationale 质量，而是注入形式。
-分类头附加 = 模型可以完全忽略（乘性削弱）。
-改成加性残差（CIRM 方法）= 模型必须保留 rationale 的信息，最坏退化为原信号。
-RGI 的设计正是基于这个洞察，full 85.34 证明了它的有效性。
+Recommendation: Yes, integrate Hugging Face for baseline comparisons
 ```
 
 ---
 
-## 快速参考
+## Quick Reference
 
-| 需求 | 位置 |
+| Need | Go to |
 |---|---|
-| 我想了解某个论文的技术 | 读「参考论文分析」 |
-| 我想了解某个项目的代码 | 读「参考项目代码分析」 |
-| 我想做可行性评估 | 读「可行性评估」 |
-| Architect 问我某个技术问题 | 查「调研议题」或新增一个 |
+| Need research on topic X | Create entry in "Research Topics" |
+| Found relevant paper | Add to "Reference Paper Analysis" |
+| Found useful code | Add to "Reference Code Analysis" |
+| Store useful snippet | Add to "Knowledge Base" |
+
+---
+
+## Checklist
+
+When completing research:
+- [ ] Research question clearly defined
+- [ ] Findings documented with sources
+- [ ] Recommendations clear and actionable
+- [ ] Write Handoff in STATUS.md
+- [ ] Update STATUS.md Role Dashboard

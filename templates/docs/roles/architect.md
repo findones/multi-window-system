@@ -1,147 +1,185 @@
-# 🧭 Architect — 设计师窗口
+# 🧭 Architect — Design Window
 
-> 本文件是 🧭 Architect 角色的主场。记录设计决策、架构演进、待决策题目。
-> 与 `STATUS.md` 不同：STATUS.md 是跨窗口的、简要的状态板；本文件是深度的、personal journey 的记录。
-
----
-
-## 设计决策历程
-
-### 第 N 版：[方向名称] (日期)
-
-**动机**：[为什么要这么设计？什么问题需要解决？]
-
-**核心思路**：
-- [关键想法 1]
-- [关键想法 2]
-- [权衡与取舍]
-
-**验证结果**：
-- [实验 1]: 如何验证？结果如何？
-- [实验 2]: [...]
-- **结论**：[成功 / 失败，为什么？]
-
-**遗留问题**：
-- [问题 1：可能后续需要处理]
-- [问题 2：...]
+> This is the Architect role's primary workspace. Record design decisions, architecture evolution, open design questions.
+> Different from `STATUS.md`: STATUS is cross-window and concise; this file is deep personal design journey.
 
 ---
 
-### 第 1 版：[方向名称] (日期)
+## Design Decision Journey
 
-**动机**：...
+### Version N: [Direction Name] (DATE)
+
+**Motivation**: [Why design this way? What problem needs solving?]
+
+**Core Ideas**:
+- [Key idea 1]
+- [Key idea 2]
+- [Tradeoffs made]
+
+**Validation Results**:
+- [Experiment 1]: How to validate? What were the results?
+- [Experiment 2]: [...]
+- **Conclusion**: [Success/Failure, why?]
+
+**Open Questions**:
+- [Issue 1: Might need handling later]
+- [Issue 2: ...]
 
 ---
 
-## 当前设计 Spec
+### Version N-1: [Direction Name] (DATE)
 
-[简要说明当前架构的核心组件]
+**Motivation**: ...
 
-**架构图**：
+---
+
+## Current Design Spec
+
+[Brief explanation of current architecture's core components]
+
+**Architecture Diagram**:
 ```
-[用 ASCII 画或用文字描述]
+[ASCII art or text description]
 
 Input → [Module A] → [Module B] → [Module C] → Output
                         ↓
                    [Loss Function]
 ```
 
-**给工程师的界面要求**：
-- 输入：[形状、类型、范围]
-- 输出：[形状、类型、范围]
-- 关键超参数：[...]
-- 性能指标：[目标]
+**Interface Requirements for Engineer**:
+- Input: [shapes, types, ranges]
+- Output: [shapes, types, ranges]
+- Critical hyperparameters: [...]
+- Target performance: [...]
 
-**为什么这样设计**：[深度解释，不要放在 method.md，那里是 spec]
-
----
-
-## 待决策题目
-
-### 题目 1：[Title]
-
-**背景**：[为什么这是个问题？]
-
-**Option A**：[方案 A 的优缺点]
-- 优：[...]
-- 缺：[...]
-
-**Option B**：[方案 B 的优缺点]
-- 优：[...]
-- 缺：[...]
-
-**建议实验**：[怎么验证？]
-
-**当前倾向**：[Architect 的初步想法]
+**Why This Design**: [Deep explanation - this goes here, not in method.md which is just the spec]
 
 ---
 
-## 给工程师的反馈
+## Open Design Questions
 
-[如果有任何给 Engineer 的设计反馈，写在这里。不是指令（指令在 STATUS.md Handoff），而是背景信息。]
+### Question 1: [Title]
+
+**Background**: [Why is this a problem?]
+
+**Option A**: [Pros/cons of approach A]
+- Pros: [...]
+- Cons: [...]
+
+**Option B**: [Pros/cons of approach B]
+- Pros: [...]
+- Cons: [...]
+
+**Suggested Experiment**: [How to validate?]
+
+**Current Lean**: [Architect's preliminary thinking]
 
 ---
 
-## 参考文献 / 灵感
+## Feedback for Engineer
 
-- [论文 1]：[为什么参考]
-- [项目 1]：[为什么参考]
+[Any design feedback for Engineer goes here. Not instructions (those go in STATUS.md Handoff), but background information.]
 
 ---
 
-## 例子（来自真实项目）
+## References / Inspiration
+
+- [Paper 1]: [Why reference this]
+- [Project 1]: [Why reference this]
+
+---
+
+## Example (Realistic Structure)
 
 ```
-设计决策历程
+Design Decision Journey
 
-### 第 3 版：RGI (残差门控 rationale 注入) (2026-06-15)
+### Version 3: Gated Residual Architecture (2026-06-15)
 
-动机：RSRN 7-stage 消融全负，复盘发现根因是"乘性削弱" (q·R) 而非"加性残差" (x+σ(W·x)·cross)。
-CIRM 用加性残差，最坏情况下退化为 x（不削弱主信号）。
+Motivation: 
+Previous version (V2) used multiplicative fusion which showed instability in ablation tests.
+Hypothesis: Additive residual connection would be more stable and preserve main signal.
+Inspiration: Similar techniques work well in other domains.
 
-核心思路：
-- OCR 裸残差增强（无门控）→ T/V 更强
-- rationale 残差门控注入（q 调制强度，不削弱）→ 吸收更丰富信息
-- RQE：q 从"无 rationale"态预测，自监督学习何时该用 rationale
-- 直接池化，不再需要复杂的多 stage fusion
+Core Ideas:
+- Use additive residual instead of multiplicative fusion
+- Gate mechanism to control contribution weight
+- Dropout on gating weights for regularization
+- Bidirectional attention between feature streams
 
-验证结果：
-- RGI full 85.34±0.27 > A 84.49 (+0.85)
-- 内部消融：OCR +0.68 (主贡献), rationale ≈0, q ≈0
-- 结论：残差门控架构坐实，简化之前复杂的 RSRN 消融全负现象
+Validation:
+- Experiment 1 (Stability test): V3 converges smoothly, loss curves are stable ✓
+  → V2 by comparison shows oscillating loss in first 100 steps
+- Experiment 2 (Ablation): Gating mechanism contributes +2.3% performance
+  → Without gating: 79.5% → With gating: 81.8%
+- Experiment 3 (Residual strength): Verified signal preservation (main stream 85% of output)
+- Conclusion: V3 design is both stable and effective
 
----
+Open Questions:
+1. Should gating be learned per-sample or global?
+   → Preliminary: per-sample is more flexible, but uses more parameters
+2. Could we use attention instead of hardcoded gating?
+   → Preliminary: yes, but more complex, defer to V4
 
-### 第 2 版：GDC (差异融合，已归档) (2026-06-20)
+### Version 2: Multiplicative Fusion (2026-05-20)
 
-动机：借 GDCNet 差异表征，希望通过量化"原文 vs v3 rationale 的不一致"来增益。
-
-核心思路：
-- 离线算三个差异指标：[d_sem, d_sen, d_fidelity]
-- 差异分支独立融合
-- 8 维结构化（语义/情感/保真各组）
-
-验证结果：
-- GDC-v2 full 83.63±0.31 < RGI 85.34（−1.71）
-- 8D 维度升级未带来增益
-- 大部分维度是噪声，仅语义组有微弱信号
-
-结论：差异融合方向信噪比低，与 RGI 加性残差框架性质不兼容。归档为 negative result。
+Motivation: ...
+[Previous version details]
 
 ---
 
-### 第 1 版：RSRN (7-stage rationale fusion，已归档) (2026-05-01)
+Current Design Spec
 
-动机：…
+**Architecture Diagram**:
+```
+Text Input ────→ [Encoder A] ──→ [Fusion Module] ──→ [Classification] → Prediction
+                                       ↑
+Image Input ────→ [Encoder B] ────────┘
+                  (with Gating)
+```
+
+**Interface for Engineer**:
+- Input A (text): shape (batch, seq_len, 512), dtype float32
+- Input B (image): shape (batch, channels, height, width), dtype float32  
+- Output: shape (batch, num_classes), dtype float32
+- Critical hyperparameters: 
+  - gate_dropout: 0.1
+  - fusion_attention_heads: 8
+  - residual_strength: 0.5
+- Target: ≥82% accuracy on validation set
+
+---
+
+Open Design Questions
+
+### Question 1: Cross-stream Attention Direction
+
+Background: Should secondary stream attend to primary, or bidirectional?
+
+Option A (Unidirectional):
+- Pros: Simpler, fewer parameters, faster inference
+- Cons: May miss useful secondary→primary contributions
+
+Option B (Bidirectional):
+- Pros: Richer interaction, might improve results
+- Cons: More parameters, slower inference, harder to debug
+
+Suggested Experiment: 
+- Run same setup with both approaches
+- Compare accuracy, latency, parameter count
+- Analyze attention weight distributions
+
+Current Lean: Bidirectional is worth the overhead for this problem
 ```
 
 ---
 
-## 快速参考
+## Checklist
 
-| 需求 | 位置 |
-|---|---|
-| 我想理解当前架构 | 读「当前设计 Spec」 |
-| 我想看之前的尝试 | 读「设计决策历程」 |
-| 我想了解某个技术选择的原因 | 查「为什么这样设计」部分 |
-| 我想看接下来的方向 | 读「待决策题目」 |
+When completing design iteration:
+- [ ] Motivation clearly explained
+- [ ] Validation experiments specified
+- [ ] Open questions identified
+- [ ] Update method.md with spec
+- [ ] Write Handoff message in STATUS.md
+- [ ] Update STATUS.md Role Dashboard

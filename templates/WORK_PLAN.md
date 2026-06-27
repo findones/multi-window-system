@@ -1,56 +1,57 @@
-# 工作日志 (Changelog)
+# Work Changelog
 
-> **本文件 = 按时间倒序的工作日志**（不是状态板）。
-> 实时状态 / 决策 / 4 角色分工 看根目录 `STATUS.md`。
-
----
-
-## Changelog (2026-06-28)
-
-- [工作 1]: [做了什么，结果如何]
-- [工作 2]: [...]
+> **This file = Time-indexed work log** (NOT status board).
+> Real-time status / decisions / role assignments are in `STATUS.md` at root.
 
 ---
 
-## Changelog (2026-06-27)
+## Changelog (YYYY-MM-DD)
 
-- [工作 1]: [...]
-
----
-
-## 早期规划 (归档)
-
-[如果有早期的目标、假设、阶段划分，可以在这里归档，但标记为"已归档"。]
-
-例如：
-- **Phase 0** (2026-04-01): 数据准备和 baseline 建立（已完成）
-- **Phase 1** (2026-05-01): 模型 V1 设计和实验（已完成，未超预期）
-- **Phase 2** (2026-06-01): 模型 V2 改进（进行中）
-- **Phase 3** (2026-07-01): 论文撰写（等待 Phase 2 完成）
+- [Work Item 1]: [What you did, results]
+- [Work Item 2]: [...]
+- [Key Metrics]: [Numbers if applicable]
 
 ---
 
-## 使用说明
+## Changelog (YYYY-MM-DD)
 
-**何时更新**:
-- 每个工作日结束时，追加一条 Changelog
-- 或每当有重要进展时
+- [Work Item 1]: [...]
 
-**格式**:
+---
+
+## Early Planning (Archived)
+
+[Keep early goals, assumptions, phase breakdown here if helpful, but mark as "archived".]
+
+**Example:**
+- **Phase 0** (YYYY-MM-DD): Data preparation and baseline setup (COMPLETED)
+- **Phase 1** (YYYY-MM-DD): Model V1 design and experiments (COMPLETED, met goals)
+- **Phase 2** (YYYY-MM-DD): Model V2 improvements (IN PROGRESS)
+- **Phase 3** (YYYY-MM-DD): Paper writing (WAITING for Phase 2)
+
+---
+
+## How to Use This File
+
+**When to update:**
+- End of each work day, append a Changelog entry
+- Or whenever there's important progress
+
+**Format:**
 ```
 ## Changelog (YYYY-MM-DD)
 
-- [名字]:
-  - 工作 1: [简要说明]
-  - 工作 2: [简要说明]
-  - 数字: [关键指标]
+- [Name/Role]:
+  - Work 1: [Brief description]
+  - Work 2: [Brief description]
+  - Metrics: [Key numbers if applicable]
 ```
 
-**不要做的事**:
-- ❌ 不要修改历史 Changelog（时间是不可修改的）
-- ❌ 不要在这里写"为什么"（那是 STATUS.md 和角色文档的职责）
-- ❌ 不要把这个当 TODO list（待办在 STATUS.md）
+**What NOT to do:**
+- ❌ Don't modify past Changelog entries (time is immutable)
+- ❌ Don't write "why" here (that's STATUS.md and role docs' job)
+- ❌ Don't use this as a TODO list (TODO goes in STATUS.md)
 
-**参考**:
-- 实时状态和决策 → STATUS.md
-- 详细的"为什么这么做" → docs/roles/*.md
+**References:**
+- Real-time status & decisions → STATUS.md
+- Detailed "why we did this" → docs/roles/*.md

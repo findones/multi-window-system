@@ -1,190 +1,193 @@
-# ✍️ Paper — 论文写作窗口
+# ✍️ Paper — Writing Window
 
-> 本文件是 ✍️ Paper 角色的主场。记录论文故事、大纲、写作进度、关键数据点。
-> 与 `RESULTS.md` 不同：RESULTS.md 是数据表（纯数字）；本文件是写作日志（故事和论证）。
-
----
-
-## 论文主故事
-
-[项目想讲什么故事？核心创新是什么？用 2-3 段总结]
-
-**例子**：
-- MMSD3.0 是个多图讽刺检测任务，讽刺证据可能分散在单图/图对/整组图。
-- 我们的 RGI (Rationale-Guided Injection) 通过加性残差门控，能更好地吸收结构化 rationale 信息。
-- 在 MMSD3.0 上相比 baseline A，RGI 取得 +1.82 的性能提升。
+> This is the Paper role's primary workspace. Record narrative, outline, writing progress, key data points.
+> Different from `RESULTS.md`: RESULTS is data table (pure numbers); this file is writing log (story and arguments).
 
 ---
 
-## 论文大纲
+## Main Narrative
+
+[What's the core story of this project? What problem does it solve? What's the key contribution? Summarize in 2-3 paragraphs]
+
+---
+
+## Paper Outline
 
 ### 1. Introduction
-- [问题陈述]
-- [现有方法的 gap]
-- [我们的贡献]
-- [论文结构]
+- Problem statement
+- Related work gap
+- Our contribution
+- Paper structure
 
-### 2. 相关工作
-- [多模态理解]
-- [讽刺检测]
-- [结构化 rationale]
+### 2. Related Work
+- [Related area 1]
+- [Related area 2]
+- [Related area 3]
 
-### 3. 方法
-- 3.1 [核心方法名] (RGI 架构)
-  - [动机]
-  - [技术细节]
-  - [消融设计]
+### 3. Method
+- Core approach/algorithm
+- Design choices and motivation
+- Key innovations
 
-### 4. 实验
-- 4.1 [数据集介绍]
-- 4.2 [基线和对比]
-- 4.3 [消融研究]
-- 4.4 [案例分析]
+### 4. Experiments
+- Experimental setup
+- Baselines and comparisons
+- Ablation studies
+- Analysis and insights
 
-### 5. 结果与讨论
-- [主要结果]
-- [与先前工作的对比]
-- [限制和未来工作]
+### 5. Results & Discussion
+- Main findings
+- Comparison with prior work
+- Limitations
+- Future work
 
-### 6. 结论
-
----
-
-## 核心论证
-
-### 论证 1：RGI > Baseline A
-
-**支持证据**：
-- RGI full 85.34 vs A 84.49，差异 +0.85
-- 同口径 v3 缓存验证：RGI 85.34 > A 83.52（+1.82）
-
-**深层原因**：
-- RGI 的加性残差架构能更好吸收结构化 rationale
-- A 的 160-cap 限制了 rationale 长度，而 v3 rationale 更丰富
-
-**反驳预期 reviewer 质疑**：
-- "是不是只是因为 cap 的差异？" → A512 补跑 84.13，仍低 RGI 1.21，所以不仅是 cap
-- "那 incongruity 是不是有害的？" → no_incongruity 84.92 < full，incongruity 有 +0.42 贡献
+### 6. Conclusion
 
 ---
 
-### 论证 2：[其他核心论证]
+## Core Arguments
 
-[类似结构]
+### Argument 1: [Main Claim]
 
----
+**Supporting Evidence**:
+- [Evidence from RESULTS.md]
+- [Comparative analysis showing...]
+- [Statistical significance]
 
-## 写作进度
+**Anticipated Objections**:
+- Objection 1 → Our response
+- Objection 2 → Our response
 
-- [ ] Introduction 初稿
-- [ ] 相关工作初稿
-- [ ] 方法章节初稿
-- [ ] 实验章节初稿
-- [ ] 结果总结初稿
-- [ ] 全文一校
-- [ ] 全文二校
-- [ ] 给 Architect 过一遍
-- [ ] 给 Engineer 核对数字
-- [ ] 最终定稿
+### Argument 2: [Secondary Claim]
+
+[Similar structure]
 
 ---
 
-## 关键数据点 (from RESULTS.md)
+## Writing Progress
 
-[定期从 RESULTS.md 同步关键数字，这样写论文时不用反复查]
+- [ ] Introduction draft
+- [ ] Related work draft
+- [ ] Method section draft
+- [ ] Experiments section draft
+- [ ] Results summary draft
+- [ ] Full draft complete
+- [ ] First review
+- [ ] Final revisions
 
-| 配置 | macroF1 | 说明 |
+---
+
+## Key Data Points (from RESULTS.md)
+
+[Keep updated from RESULTS.md - don't repeat lookup work]
+
+| Configuration | Result | Notes |
 |---|---|---|
-| RGI full | 85.34±0.27 | 当前最优 |
-| A | 84.49 | Baseline（旧口径） |
-| A@v3 | 83.52±0.31 | 同口径对标 |
-| base@v3 | 83.92±0.47 | 简化基线 |
-| A512 | 84.13±0.42 | cap 补洞实验 |
-| no_incongruity | 84.92±0.87 | 字段消融 |
+| Baseline | [value] | Reference |
+| Our Method | [value] | Main result |
+| Ablation 1 | [value] | Shows component importance |
+| Ablation 2 | [value] | Shows component importance |
 
 ---
 
-## 关键图表 (待生成)
+## Figures & Tables to Generate
 
-- [ ] 架构图（RGI vs baseline）
-- [ ] 结果对比表（RGI / A / base / 消融）
-- [ ] 消融分析（各模块贡献）
-- [ ] 案例分析（3-5 个样例）
-
----
-
-## 写作笔记
-
-### [日期] [章节]
-
-**当前状态**：[写到哪里了]
-
-**遇到的问题**：
-- [问题 1 + 如何解决]
-- [问题 2 + 如何解决]
-
-**需要从其他窗口的反馈**：
-- [来自 Architect 的设计反馈]
-- [来自 Engineer 的实现细节]
+- [ ] Architecture comparison diagram
+- [ ] Results comparison table
+- [ ] Ablation analysis chart
+- [ ] Case studies (3-5 examples)
+- [ ] Performance breakdown by category
 
 ---
 
-## 例子（来自真实项目）
+## Writing Notes
+
+### [DATE] [Section Name]
+
+**Current Status**: [Where writing stands]
+
+**Challenges**:
+- [Challenge 1 + solution]
+- [Challenge 2 + solution]
+
+**Feedback Needed From**:
+- [Architect feedback on design discussion]
+- [Engineer feedback on implementation details]
+
+---
+
+## Example (Realistic Structure)
 
 ```
-论文主故事
+Main Narrative
 
-MMSD3.0 讽刺检测中，讽刺证据可能分散在不同粒度：
-- 单图的矛盾（图像内容与文字描述不符）
-- 图对的对比（两张图的情感方向相反）
-- 整组图的模式（多张图共同营造的虚假预期）
+In real-world classification tasks, combining multiple information sources (text and image) 
+is crucial but challenging. Existing approaches struggle to properly integrate diverse modalities.
 
-现有方法 (URaCR-A) 用结构化 rationale，但注入方式是分类头附加，
-模型可以直接忽略 rationale（no_rationale 不减反增）。
+We propose a Multi-Modal Fusion architecture that uses learnable gating mechanisms to 
+dynamically weight different information streams. Compared to baseline approaches, our method 
+achieves +2.5% improvement while using 30% less parameters.
 
-我们提出 RGI (Rationale-Guided Injection)，核心创新是：
-1. OCR 裸残差增强（信息底线保护）
-2. Rationale 加性残差门控注入（q 调制强度，不削弱主信号）
-3. 简化多 stage fusion，直接池化
-
-在 MMSD3.0 上，RGI 相比 URaCR-A 提升 1.82，同时消融证明了每个设计决策的必要性。
+Core evaluation on the benchmark dataset shows consistent gains across multiple configurations 
+and ablation studies validate the importance of each design component.
 
 ---
 
-核心论证
+Core Arguments
 
-### RGI > A 的充分条件
+### Argument 1: Our Architecture Outperforms Baselines
 
-支持证据：
-- RGI full 85.34±0.27 > A 84.49
-  ✓ 同口径（都用 v3 缓存）
-  ✓ 统计显著（间隔 > std 和）
-  ✓ 消融完整（8 个消融验证各模块必要）
+Supporting Evidence:
+- RESULTS.md Table 1: Our method 84.5% > Baseline A 83.2% (+1.3%)
+- Statistical significance: difference > 2× standard deviation
+- Ablation Study (Table 2): Each component contributes +0.3-0.5%
 
-深层原因——RGI 的加性残差架构更好吸收 rationale：
-- v3 上 RGI +1.15 而 A −0.97
-  → RGI 用 512 无损，A 受 160-cap 限制
-  → rationale 质量更好时，RGI 能利用，A 不能
+Anticipated Objections:
+- "Isn't the improvement just from using more parameters?" 
+  → No. RESULTS.md Table 3 shows our method has 30% FEWER parameters than baseline
+- "Maybe it's just better hyperparameter tuning?"
+  → We used identical hyperparameters and training procedure for fair comparison
 
-预期反驳：
-Q1: "cap 是主因吗？"
-A: 不完全是。A512 84.13 + 0.61 但仍低 RGI 1.21。
-   → cap 是部分原因，但架构本身（加性 vs 乘性）才是根本。
+### Argument 2: Design Components Are Necessary
 
-Q2: "那为什么 incongruity 有这么多 'none'，是不是有害的？"
-A: no_incongruity 84.92 < full 85.34，incongruity 有 +0.42 正贡献。
-   → 之前猜测"incongruity 有毒"不成立。
-   → 字段重要性排序: relation > per_image > incongruity > ...
+Supporting Evidence:
+- Ablation Study in RESULTS.md Table 2
+- Without gating: 83.8% (-0.7%)
+- Without attention: 83.1% (-1.4%)
+- Conclusion: All components are important
+
+---
+
+Key Data Points
+
+| Config | Accuracy | Parameters | Memory | Notes |
+|---|---|---|---|---|
+| Baseline A | 83.2% | 95M | 12GB | Reference |
+| Baseline B | 83.8% | 120M | 16GB | Alternative |
+| Our Method | 84.5% | 65M | 8GB | Proposed |
+| - No Gating | 83.8% | 60M | 7GB | Ablation |
+| - No Attention | 83.1% | 55M | 6GB | Ablation |
+
 ```
 
 ---
 
-## 快速参考
+## Tone & Style Reminders
 
-| 需求 | 位置 |
-|---|---|
-| 我想知道论文主故事 | 读「论文主故事」 |
-| 我想看论文大纲 | 读「论文大纲」 |
-| 我想看关键数据 | 读「关键数据点」 |
-| 我想了解某个论证 | 读「核心论证」 |
-| 我写论文遇到问题 | 写在「写作笔记」 |
+- Keep technical but accessible to broad audience
+- Ground all claims in RESULTS.md numbers
+- Avoid overclaiming - stick to evidence
+- Balance "what" with "why"
+- Use concrete examples from ablations
+
+---
+
+## Checklist
+
+When completing writing section:
+- [ ] Claims grounded in RESULTS.md
+- [ ] Evidence supports conclusions
+- [ ] Anticipated criticisms addressed
+- [ ] Data cited accurately
+- [ ] Write Handoff in STATUS.md
+- [ ] Update STATUS.md Role Dashboard

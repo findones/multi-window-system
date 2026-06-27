@@ -1,183 +1,188 @@
-# 🔧 Engineer — 工程师窗口
+# 🔧 Engineer — Implementation Window
 
-> 本文件是 🔧 Engineer 角色的主场。记录代码改动、实验运行、踩过的坑、技术决策。
-> 与 `CODE_MAP.md` 不同：CODE_MAP.md 是接口圣经（当前状态）；本文件是实现日志（演变过程）。
-
----
-
-## 代码实现日志
-
-### [日期] [功能/模块名]
-
-**任务**：[来自 Architect 的指令 + 背景]
-
-**实现**：
-- [改了哪个文件]
-- [新增了什么]
-- [删除了什么]
-- [为什么这样实现]
-
-**验证**：
-- [CPU smoke 测试]
-- [GPU 小规模测试]
-- [最终的 3-seed 结果]
-
-**遇到的问题**：
-- [问题 1 + 解决方案]
-- [问题 2 + 解决方案]
-
-**代码质量**：
-- [性能如何]
-- [显存占用如何]
-- [是否有技术债]
+> This is the Engineer role's primary workspace. Record code changes, experiment runs, technical challenges faced, and technical decisions.
+> Different from `CODE_MAP.md`: CODE_MAP is the "current interface bible"; this file is the "implementation journey".
 
 ---
 
-## 实验运行日志
+## Implementation Log
 
-### [日期] [实验名称]
+### [DATE] [Feature/Module Name]
 
-**实验目的**：[Architect 想验证什么？]
+**Task**: [Instructions from Architect + background context]
 
-**配置**：
-- 模型：[...]
-- 超参数：[...]
-- 数据集：[...]
-- Seeds：[41, 73, 2026]
+**Implementation**:
+- [Which files modified]
+- [What was added]
+- [What was removed]
+- [Why this approach]
 
-**运行状态**：
-- 卡 A (seed 41): [状态]
-- 卡 B (seed 73): [状态]
-- 卡 C (seed 2026): [状态]
+**Validation**:
+- [CPU smoke test results]
+- [GPU small-scale test results]
+- [Final multi-seed results if applicable]
 
-**结果**：
-- [数字]
-- [vs baseline 的对比]
-- [结论]
+**Issues Encountered**:
+- [Problem 1 + solution]
+- [Problem 2 + solution]
 
-**代码改动**：
-- [修改了哪些脚本]
-- [新增了哪些超参]
-
----
-
-## 踩过的坑 (TL;DR)
-
-[这一部分是给未来的自己和团队的"防踩坑指南"。每当发现一个重要坑，立即记录。]
-
-### 坑 1：[坑名]
-
-**表现**：[什么时候会掉进这个坑]
-
-**根因**：[为什么会这样]
-
-**解决方案**：[怎么修复]
-
-**预防**：[以后怎么避免]
+**Code Quality**:
+- [Performance metrics]
+- [Memory usage]
+- [Technical debt if any]
 
 ---
 
-## 性能优化笔记
+## Experiment Runs Log
 
-[如果做过任何性能相关的优化，记录在这里]
+### [DATE] [Experiment Name]
 
-- [优化 1]: 原来 [X] ms，优化后 [Y] ms，通过 [什么方法]
-- [优化 2]: ...
+**Goal**: [What Architect wanted to validate?]
 
----
+**Configuration**:
+- Model: [...]
+- Hyperparameters: [...]
+- Dataset: [...]
+- Seeds: [41, 73, 2026]
 
-## 显存优化笔记
+**Execution Status**:
+- Device A (seed 41): [status]
+- Device B (seed 73): [status]
+- Device C (seed 2026): [status]
 
-- [优化 1]: 原来 [X] GB，优化后 [Y] GB，通过 [什么方法]
-- [优化 2]: ...
+**Results**:
+- [Metrics]
+- [vs baseline comparison]
+- [Conclusion]
 
----
-
-## 给其他窗口的反馈
-
-[如果在实现过程中发现设计问题，写在这里。需要改设计时，通过 STATUS.md 的 Handoff 通知 Architect。]
-
-### [日期] 设计反馈 → Architect
-
-**问题**：[具体遇到了什么问题]
-
-**建议**：[有什么改进建议]
-
-**影响**：[如果不改，会怎样]
+**Code Changes**:
+- [Which scripts modified]
+- [New hyperparameters added]
 
 ---
 
-## 例子（来自真实项目）
+## Pit Report (TL;DR)
+
+[This section is a "pitfall guide" for future self and team. Record every important pitfall immediately when discovered.]
+
+### Pitfall 1: [Pitfall Name]
+
+**Symptom**: [When do you fall into this pit?]
+
+**Root Cause**: [Why does this happen?]
+
+**Solution**: [How to fix it]
+
+**Prevention**: [How to avoid in the future]
+
+---
+
+## Performance Optimization Notes
+
+[If you did any performance optimizations, record here]
+
+- [Optimization 1]: Before [X] ms, after [Y] ms, method: [...]
+- [Optimization 2]: ...
+
+---
+
+## Memory Optimization Notes
+
+- [Optimization 1]: Before [X] GB, after [Y] GB, method: [...]
+- [Optimization 2]: ...
+
+---
+
+## Feedback to Other Windows
+
+[If you found design issues during implementation, write here. Use STATUS.md Handoff to notify Architect when design changes are needed.]
+
+### [DATE] Design Feedback → Architect
+
+**Issue**: [What specific problem did you encounter]
+
+**Suggestion**: [What improvement would help]
+
+**Impact**: [What happens if we don't fix this]
+
+---
+
+## Example (Realistic Structure)
 
 ```
-代码实现日志
+Implementation Log
 
-### 2026-06-15 RGI (残差门控 rationale 注入) 实现
+### 2026-06-15 Feature X Implementation
 
-任务：Architect 拍板转向 RGI 架构，需要实现 _GatedCrossInject 模块，支持 rationale 残差门控注入。
+Task: Architect approved new architecture. Need to implement Module Y with the following requirements:
+- Support input type A and type B
+- Output should be optimized for latency
+- Must integrate with existing Module Z
 
-实现：
-- 新建 models/rgi.py，定义 RGIModel + _GatedCrossInject
-- _GatedCrossInject: 
-  - 输入 T1 (OCR 增强后的文本) / R (rationale) / q (intensity gate)
-  - 输出 LN(T1 + (q·g)⊙CrossAttn(T1,R))
-  - 其中 g = sigmoid(MLP(rationale_embed))
-- train.py 新增 --rgi_use_rationale / --rgi_use_rqe 等开关
-- run_rgi.sh 定义 4 个消融：full / no_rqe / no_ocr / no_rationale
+Implementation:
+- Created models/feature_x.py with ModuleY class
+- ModuleY: 
+  - Takes inputs (data, config)
+  - Produces optimized output
+  - Includes validation checks
+- Updated train.py to support --feature_x_enabled flag
+- Created run_experiment.sh for ablation studies
 
-验证：
-- CPU 5 样本 smoke：forward / backward / eval / test 全通
-- 待 GPU 真训练
+Validation:
+- CPU smoke test: forward/backward/eval all pass ✓
+- GPU small test: 8 samples complete successfully ✓
+- Full validation: 3-seed run with different configurations
 
-遇到的问题：
-1. Q 网络的初始化——用了 Kaiming 初始化但 loss 不稳定
-   → 改成从"无 rationale"态开始预测，用 L1 loss: |L_no_rat - L_with_rat|
-   → 现在稳定了，q 的直方图符合预期
-2. rationale 在 DeBERTa tokenizer 中的截断问题
-   → 改用 max_rationale_len=512 而不是 160
-   → 实测全 10833 样本零截断
+Issues Encountered:
+1. Initialization instability with certain configurations
+   → Switched to Xavier initialization instead of Kaiming
+   → Verified convergence is now stable
+2. Input truncation issues
+   → Adjusted max input length to 512
+   → Verified zero truncation on full dataset (10K samples)
 
-代码质量：
-- 参数量：新增 3.2M（relative 5% 相对较小）
-- 显存：batch=16 时 ~18GB（可接受）
-- 推理速度：vs baseline +3%（可接受）
+Code Quality:
+- New parameters: 2.5M (3% increase relative to baseline)
+- Memory at batch=16: ~16GB (acceptable)
+- Inference overhead: +2% (minimal impact)
 
-性能优化笔记：
-- _GatedCrossInject 中的 CrossAttn 显存开销最大（3 次 matmul）
-  → 后续如果显存紧张，可考虑用 flash-attention
+Performance Notes:
+- Critical section: Module Y attention mechanism uses most memory
+- Future optimization: could use Flash Attention if memory becomes bottleneck
 
 ---
 
-踩过的坑
+Experiment Runs Log
 
-### 坑：DeBERTa tokenizer 的隐式截断
+### 2026-06-20 Feature X Ablation Study
 
-表现：模型输出不稳定，rationale 的贡献预期应该是 +0.3 但实际 +0.0。
+Goal: Validate contribution of each component in Feature X
 
-根因：
-  DeBERTa 默认输入限制 512，我们把 rationale concat 到原文后超了 512，
-  被静默截断。但截断的是 incongruity（附在最后），导致数据污染。
+Configuration:
+- Model: BaselineV1 + Feature X
+- Hyperparameters: lr=0.001, batch=16, epochs=20
+- Dataset: StandardBench
+- Seeds: 41, 73, 2026
 
-解决：
-  改成 max_rationale_len=512 参数，在 dataset 层面就做长度约束，
-  确保 token 装得下。
+Results:
+- Full system: 82.5% ± 0.8%
+- Without component A: 81.2% ± 0.9% (-1.3%)
+- Without component B: 82.1% ± 0.7% (-0.4%)
+- Conclusion: Component A is the critical contribution; B is minor
 
-预防：
-  - 一定要在 dataset 层面验证"数据长度"
-  - 不要相信 tokenizer 的默认行为，要手动 check max length
-  - 务必在 smoke test 中检查一些样本的真实 token 长度
-
-坑的影响等级：⚠️ 中等（导致数据污染，模型学不到信号）
+Code Changes:
+- run_experiment.sh: added --disable_component_a / --disable_component_b flags
+- train.py: added feature_x_ablate_mode parameter
 ```
 
 ---
 
-## 快速参考
+## Template Checklist
 
-| 需求 | 位置 |
-|---|---|
-| 我想知道某个模块怎么实现的 | 读「代码实现日志」 |
-| 我想知道最近的实验结果 | 读「实验运行日志」 |
-| 我想知道某个 bug 怎么避免 | 读「踩过的坑」 |
-| 我想知道代码性能 | 读「性能优化笔记」 |
-| 我发现了设计问题 | 写在「给其他窗口的反馈」 |
+When completing implementation:
+- [ ] All code modifications done
+- [ ] Test results recorded
+- [ ] Pitfalls documented
+- [ ] Update CODE_MAP.md
+- [ ] Write Handoff message in STATUS.md
+- [ ] Update STATUS.md Role Dashboard
