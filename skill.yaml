@@ -1,0 +1,124 @@
+# Claude Code Skill Definition
+# Multi-Window Project Management System
+
+name: multi-window-project-init
+id: multi-window-system
+version: 1.0.0
+author: Community
+license: MIT
+homepage: https://github.com/your-username/multi-window-system
+
+description: |
+  Initialize multi-window project management system for large AI-assisted projects.
+
+  Solves single-window context explosion by splitting projects into 4 focused windows:
+  - 🧭 Architect: Design & decisions
+  - 🔧 Engineer: Implementation & experiments
+  - ✍️ Paper: Writing & narrative
+  - 🔬 Repro: Research & references
+
+  All windows sync via STATUS.md for clear decision tracking.
+
+# How to invoke this skill in Claude Code
+invocation:
+  slash_command: "/multi-window-project-init"
+  examples:
+    - "/multi-window-project-init \"My ML Project\""
+    - "/multi-window-project-init \"My Project\" --language zh"
+    - "/multi-window-project-init \"My Project\" --roles architect,engineer"
+
+# Command-line arguments
+arguments:
+  project_name:
+    position: 1
+    type: string
+    required: true
+    description: "Name of your project"
+    example: "My ML Research Project"
+
+  --language, -l:
+    type: choice
+    choices: ["en", "zh"]
+    default: "en"
+    description: "Documentation language (English or Chinese)"
+
+  --roles, -r:
+    type: string
+    default: "architect,engineer,paper,repro"
+    description: "Comma-separated roles to initialize"
+    example: "architect,engineer"
+
+  --output, -o:
+    type: path
+    default: "."
+    description: "Output directory for templates"
+
+# Files this skill creates
+output_files:
+  - STATUS.md
+  - method.md
+  - CODE_MAP.md
+  - RESULTS.md
+  - WORK_PLAN.md
+  - docs/roles/architect.md
+  - docs/roles/engineer.md
+  - docs/roles/paper.md
+  - docs/roles/repro.md
+
+# Installation instructions for users
+installation:
+  global: |
+    # Install globally (available in all projects)
+    mkdir -p ~/.claude/skills/multi-window-system
+    git clone https://github.com/YOUR_USERNAME/multi-window-system.git ~/.claude/skills/multi-window-system
+
+  project: |
+    # Install in current project only
+    mkdir -p .claude/skills/multi-window-system
+    cp -r [skill-path] .claude/skills/multi-window-system
+
+# Metadata
+metadata:
+  category: project-management
+  tags:
+    - project-management
+    - multi-window
+    - ai-assisted
+    - collaboration
+    - organization
+
+  languages:
+    - en
+    - zh
+
+  supported_domains:
+    - machine_learning
+    - software_engineering
+    - research
+    - writing
+    - product_development
+
+# Performance characteristics
+performance:
+  initialization_time_seconds: 5
+  learning_curve_minutes: 15
+  output_quality: "Production-ready templates"
+  context_improvement: "3-5x cleaner per window"
+
+# Documentation
+docs:
+  readme: README.md
+  installation: INSTALL.md
+  usage: HOW_TO_INSTALL_SKILL.md
+
+# Dependencies
+dependencies:
+  python: ">=3.7"
+
+# Compatibility
+compatibility:
+  min_claude_code_version: "1.0.0"
+  os:
+    - linux
+    - macos
+    - windows
