@@ -238,17 +238,19 @@ git clone https://github.com/findones/multi-window-system.git
 cp -r multi-window-system/templates/* /your/project/
 ```
 
-### Method 2: Claude Code Skill (coming soon)
+### Method 2: Python Script (Recommended)
 
-```
-In Claude Code terminal:
-/multi-window-system-init "Project Name" "Description"
-```
+```bash
+# Clone the repository
+git clone https://github.com/findones/multi-window-system.git
+cd multi-window-system
 
-This will automatically:
-- Create all 9 template files
-- Initialize STATUS.md with your project info
-- Set up git (optional)
+# Run the initialization script
+python init.py "Project Name" --language en
+
+# Or specify output directory
+python init.py "Project Name" --output /your/project/path --language en
+```
 
 ---
 
@@ -300,32 +302,33 @@ MIT License — Free to use and adapt
 
 ## 快速开始
 
-### 步骤 1：安装 skill
+### 步骤 1：克隆和设置（30 秒）
 
 ```bash
-# 即将推出：Claude Code 自动安装
-# 现在：手动设置（见下文）
+git clone https://github.com/findones/multi-window-system.git
+cd multi-window-system
+python init.py "我的项目名称" --language zh
 ```
 
 ### 步骤 2：初始化项目（5 分钟）
 
+编辑 `STATUS.md`，填入你的项目信息：
 ```bash
-# 复制模板
-cp -r skill/templates/* /your/project/
-
-# 编辑 STATUS.md，填入你的项目名
 nano STATUS.md
 ```
 
 ### 步骤 3：开始工作
 
-打开 4 个 Claude Code 窗口：
-- 窗口 1：架构师 — `docs/roles/architect.md`
-- 窗口 2：工程师 — `docs/roles/engineer.md`
-- 窗口 3：论文 — `docs/roles/paper.md`
-- 窗口 4：复现 — `docs/roles/repro.md`
+打开 4 个 Claude Code 窗口（每个角色一个）：
 
-每个窗口先读 STATUS.md，然后在自己的角色文档中工作。
+| 窗口 | 角色 | 文件 |
+|------|------|------|
+| 1️⃣ | 架构师 | `docs/roles/architect.md` |
+| 2️⃣ | 工程师 | `docs/roles/engineer.md` |
+| 3️⃣ | 论文 | `docs/roles/paper.md` |
+| 4️⃣ | 复现 | `docs/roles/repro.md` |
+
+**工作流程**：每个窗口先读 STATUS.md → 进入角色文档工作 → 更新 STATUS.md 的 Handoff 消息。
 
 ---
 
@@ -503,17 +506,19 @@ git clone https://github.com/findones/multi-window-system.git
 cp -r multi-window-system/templates/* /your/project/
 ```
 
-### 方法 2：Claude Code Skill（即将推出）
+### 方法 2：使用 Python 脚本（推荐）
 
-```
-在 Claude Code 终端中：
-/multi-window-system-init "项目名称" "描述"
-```
+```bash
+# 克隆仓库
+git clone https://github.com/findones/multi-window-system.git
+cd multi-window-system
 
-这将自动：
-- 创建所有 9 个模板文件
-- 用你的项目信息初始化 STATUS.md
-- 设置 git（可选）
+# 运行初始化脚本
+python init.py "项目名称" --language zh
+
+# 或指定输出目录
+python init.py "项目名称" --output /your/project/path --language zh
+```
 
 ---
 
